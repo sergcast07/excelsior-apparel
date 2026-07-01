@@ -36,7 +36,7 @@
     padding-bottom: 90px;
   }
 
-  /* ── HEADER ── */
+  /* HEADER */
   header {
     background: var(--navy);
     color: white;
@@ -69,7 +69,7 @@
     line-height: 1.65;
   }
 
-  /* ── NOTICE ── */
+  /* NOTICE */
   .notice {
     background: #fdf8ef;
     border-left: 4px solid var(--gold);
@@ -83,14 +83,145 @@
   }
   .notice strong { color: #7a6428; }
 
-  /* ── MAIN ── */
+  /* CLOSED BANNER */
+  #closed-banner {
+    display: none;
+    background: #b91c1c;
+    color: white;
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.4rem;
+    position: relative;
+    z-index: 10;
+  }
+  #closed-banner .closed-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  #closed-banner .closed-sub {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  /* FORM LOCK */
+  #form-content.form-locked {
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.4;
+  }
+
+  /* ACCESS LINK */
+  .access-link-wrap {
+    text-align: center;
+    padding: 1rem 0 5rem;
+  }
+  .access-link {
+    font-size: 0.85rem;
+    color: var(--muted);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .access-link:hover { color: var(--navy); }
+
+  /* ACCESS MODAL */
+  .access-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 500;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .access-modal.show { display: flex; }
+  .access-modal-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 2rem;
+    max-width: 360px;
+    width: 100%;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+  }
+  .access-modal-card h3 {
+    font-family: 'Oswald', sans-serif;
+    color: var(--navy);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.04em;
+  }
+  .access-modal-card p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+  }
+  .access-modal-card input {
+    width: 100%;
+    padding: 0.65rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    font-family: 'Inter', sans-serif;
+  }
+  .access-modal-card input:focus {
+    outline: none;
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px rgba(26,39,68,0.1);
+  }
+  .access-modal-card input.error { border-color: #d94040; }
+  .access-error {
+    font-size: 0.82rem;
+    color: #d94040;
+    margin-bottom: 0.75rem;
+    display: none;
+  }
+  .access-error.visible { display: block; }
+  .access-btns { display: flex; gap: 0.75rem; }
+  .access-submit {
+    flex: 1;
+    background: var(--navy);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 0.7rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+  }
+  .access-submit:hover { background: var(--navy-light); }
+  .access-cancel {
+    flex: 1;
+    background: none;
+    color: var(--muted);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.7rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  .access-cancel:hover { border-color: #aaa; color: var(--text); }
+
+  /* MAIN */
   main {
     max-width: 840px;
     margin: 0 auto;
     padding: 1.5rem 1rem 3rem;
   }
 
-  /* ── CONTACT CARD ── */
+  /* CONTACT CARD */
   .contact-card {
     background: var(--white);
     border: 1px solid var(--border);
@@ -177,7 +308,7 @@
   }
   .field-error.visible { display: block; }
 
-  /* ── PAYMENT TOGGLE ── */
+  /* PAYMENT TOGGLE */
   .payment-group {
     display: flex;
     gap: 0.6rem;
@@ -197,10 +328,7 @@
     font-weight: 500;
     text-align: center;
   }
-  .payment-btn:hover {
-    border-color: #aaa;
-    background: #fafafa;
-  }
+  .payment-btn:hover { border-color: #aaa; background: #fafafa; }
   .payment-btn.active {
     border-color: var(--navy);
     background: var(--navy);
@@ -209,7 +337,7 @@
   }
   .payment-btn.error-ring { border-color: #d94040 !important; }
 
-  /* ── SECTION HEADERS ── */
+  /* SECTION HEADERS */
   .section-header {
     display: flex;
     align-items: center;
@@ -224,11 +352,7 @@
     color: var(--navy);
     white-space: nowrap;
   }
-  .section-header .divider {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
+  .section-header .divider { flex: 1; height: 1px; background: var(--border); }
   .section-header .price-tag {
     font-size: 0.77rem;
     color: var(--muted);
@@ -236,7 +360,7 @@
     white-space: nowrap;
   }
 
-  /* ── PRODUCT CARD ── */
+  /* PRODUCT CARD */
   .product-card {
     background: var(--white);
     border: 1px solid var(--border);
@@ -244,7 +368,6 @@
     padding: 1.25rem 1.5rem;
     box-shadow: var(--shadow);
   }
-
   .design-note {
     display: inline-flex;
     align-items: center;
@@ -257,11 +380,7 @@
     background: #edf5ec;
     border-radius: 20px;
   }
-
-  .mockup-img {
-    cursor: zoom-in;
-    transition: opacity 0.15s;
-  }
+  .mockup-img { cursor: zoom-in; transition: opacity 0.15s; }
   .mockup-img:hover { opacity: 0.9; }
 
   .lightbox {
@@ -285,22 +404,8 @@
     object-fit: contain;
   }
 
-  .mockup-placeholder {
-    background: #f5f4f0;
-    border: 2px dashed #d8d6cf;
-    border-radius: var(--radius-sm);
-    padding: 1.75rem;
-    text-align: center;
-    margin-bottom: 1.25rem;
-    color: #aaa;
-    font-size: 0.86rem;
-    line-height: 1.5;
-  }
-  .mockup-placeholder .icon { font-size: 1.6rem; display: block; margin-bottom: 0.3rem; opacity: 0.5; }
-
-  /* ── ORDER ROWS ── */
+  /* ORDER ROWS */
   .rows-container { display: flex; flex-direction: column; gap: 0; }
-
   .order-row {
     display: grid;
     grid-template-columns: 1fr 1fr auto auto;
@@ -313,33 +418,22 @@
   .order-row:first-child { padding-top: 0; }
   .order-row:last-child { border-bottom: none; padding-bottom: 0; }
   @media (max-width: 560px) {
-    .order-row {
-      grid-template-columns: 1fr auto;
-      grid-template-rows: auto auto auto;
-      gap: 0.5rem;
-    }
+    .order-row { grid-template-columns: 1fr auto; grid-template-rows: auto auto auto; gap: 0.5rem; }
     .order-row .field-group:first-child { grid-column: 1 / -1; }
     .order-row .field-group:nth-child(2) { grid-column: 1 / -1; }
     .order-row .qty-col { grid-column: 1; }
     .order-row .remove-col { grid-column: 2; display: flex; align-items: flex-end; justify-content: flex-end; }
   }
 
-  .qty-control {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
+  .qty-control { display: flex; align-items: center; gap: 0.4rem; }
   .qty-btn {
-    width: 30px;
-    height: 30px;
+    width: 30px; height: 30px;
     border: 1.5px solid var(--border);
     border-radius: 6px;
     background: var(--white);
     font-size: 1rem;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     transition: all 0.12s;
     color: var(--navy);
     font-weight: 700;
@@ -358,27 +452,21 @@
   .qty-display.bump { transform: scale(1.25); }
 
   .remove-btn {
-    width: 30px;
-    height: 30px;
+    width: 30px; height: 30px;
     background: none;
     border: 1.5px solid transparent;
     border-radius: 6px;
     color: #ccc;
     cursor: pointer;
     font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     transition: all 0.12s;
     flex-shrink: 0;
   }
   .remove-btn:hover { color: #d94040; border-color: #f0c0c0; background: #fff5f5; }
 
   .add-row-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
+    display: flex; align-items: center; justify-content: center; gap: 0.4rem;
     background: none;
     border: 1.5px dashed var(--border);
     border-radius: var(--radius-sm);
@@ -391,346 +479,148 @@
     margin-top: 0.75rem;
     transition: all var(--transition);
   }
-  .add-row-btn:hover {
-    border-color: var(--navy);
-    color: var(--navy);
-    background: #f5f7fc;
-  }
+  .add-row-btn:hover { border-color: var(--navy); color: var(--navy); background: #f5f7fc; }
   .add-row-btn:active { transform: scale(0.98); }
 
-  .polo-note {
-    font-size: 0.8rem;
-    color: var(--muted);
-    margin-bottom: 0.75rem;
-    line-height: 1.6;
-    padding: 0.6rem 0.85rem;
-    background: #f9f8f5;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-  }
-
-  /* ── TOTALS BAR ── */
+  /* TOTALS BAR */
   .totals-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: fixed; bottom: 0; left: 0; right: 0;
     background: var(--navy);
     color: white;
     padding: 0.85rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
     z-index: 100;
     box-shadow: 0 -4px 24px rgba(0,0,0,0.2);
   }
   .totals-bar::before {
-    content: '';
-    position: absolute;
-    inset: 0;
+    content: ''; position: absolute; inset: 0;
     background: linear-gradient(90deg, var(--navy) 0%, var(--navy-light) 100%);
     z-index: -1;
   }
-  .breakdown {
-    display: flex;
-    gap: 1.25rem;
-    flex-wrap: wrap;
-    align-items: center;
-    min-width: 0;
-  }
-  .item-chip {
-    font-size: 0.78rem;
-    opacity: 0.8;
-    white-space: nowrap;
-    animation: fadeIn 0.2s ease;
-  }
-  .item-chip strong {
-    display: block;
-    font-size: 0.88rem;
-    opacity: 1;
-    color: white;
-    font-weight: 600;
-  }
-  .empty-total {
-    font-size: 0.82rem;
-    opacity: 0.5;
-    font-style: italic;
-  }
+  .breakdown { display: flex; gap: 1.25rem; flex-wrap: wrap; align-items: center; min-width: 0; }
+  .item-chip { font-size: 0.78rem; opacity: 0.8; white-space: nowrap; animation: fadeIn 0.2s ease; }
+  .item-chip strong { display: block; font-size: 0.88rem; opacity: 1; color: white; font-weight: 600; }
+  .empty-total { font-size: 0.82rem; opacity: 0.5; font-style: italic; }
   .grand { text-align: right; flex-shrink: 0; }
-  .grand-label {
-    font-size: 0.68rem;
-    opacity: 0.6;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
+  .grand-label { font-size: 0.68rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.08em; }
   .grand-amount {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.65rem;
-    font-weight: 600;
+    font-size: 1.65rem; font-weight: 600;
     color: var(--gold-light);
     transition: transform 0.15s ease;
     display: block;
   }
   .grand-amount.bump { transform: scale(1.06); }
 
-  /* ── SUBMIT ── */
+  /* SUBMIT */
   .submit-section { margin-top: 2rem; }
   .submit-btn {
-    display: block;
-    width: 100%;
-    padding: 1.05rem;
+    display: block; width: 100%; padding: 1.05rem;
     background: var(--forest);
     color: white;
     font-family: 'Oswald', sans-serif;
-    font-size: 1.15rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border: none;
-    border-radius: var(--radius);
+    font-size: 1.15rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    border: none; border-radius: var(--radius);
     cursor: pointer;
     transition: background var(--transition), transform 0.1s, box-shadow var(--transition);
     box-shadow: 0 4px 16px rgba(45,90,39,0.25);
   }
-  .submit-btn:hover {
-    background: var(--forest-light);
-    box-shadow: 0 6px 20px rgba(45,90,39,0.32);
-  }
+  .submit-btn:hover { background: var(--forest-light); box-shadow: 0 6px 20px rgba(45,90,39,0.32); }
   .submit-btn:active { transform: scale(0.99); }
-  .submit-btn:disabled {
-    background: #9aad97;
-    box-shadow: none;
-    cursor: default;
-    transform: none;
-  }
+  .submit-btn:disabled { background: #9aad97; box-shadow: none; cursor: default; transform: none; }
 
-  /* ── TOAST / VALIDATION BANNER ── */
+  /* TOAST */
   .toast {
-    position: fixed;
-    bottom: 88px;
-    left: 50%;
+    position: fixed; bottom: 88px; left: 50%;
     transform: translateX(-50%) translateY(20px);
-    background: #2a2a2a;
-    color: white;
-    padding: 0.7rem 1.25rem;
-    border-radius: 8px;
-    font-size: 0.88rem;
-    font-weight: 500;
-    opacity: 0;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    pointer-events: none;
-    z-index: 200;
-    white-space: nowrap;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    background: #2a2a2a; color: white;
+    padding: 0.7rem 1.25rem; border-radius: 8px;
+    font-size: 0.88rem; font-weight: 500;
+    opacity: 0; transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none; z-index: 200;
+    white-space: nowrap; box-shadow: 0 4px 16px rgba(0,0,0,0.25);
   }
-  .toast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   .toast.error { background: #c0392b; }
 
-  /* ── SUCCESS ── */
+  /* SUCCESS */
   .success-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
+    display: none; position: fixed; inset: 0;
     background: rgba(26,39,68,0.85);
-    z-index: 300;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
+    z-index: 300; align-items: center; justify-content: center; padding: 1.5rem;
     animation: fadeIn 0.25s ease;
   }
   .success-overlay.show { display: flex; }
   .success-card {
-    background: white;
-    border-radius: 18px;
-    padding: 2.5rem 2rem;
-    max-width: 420px;
-    width: 100%;
-    text-align: center;
+    background: white; border-radius: 18px; padding: 2.5rem 2rem;
+    max-width: 420px; width: 100%; text-align: center;
     box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     animation: scaleIn 0.25s ease;
   }
-  .success-card .check {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    display: block;
-  }
-  .success-card h3 {
-    font-family: 'Oswald', sans-serif;
-    color: var(--forest);
-    font-size: 1.5rem;
-    margin-bottom: 0.6rem;
-    letter-spacing: 0.04em;
-  }
-  .success-card p {
-    color: var(--muted);
-    font-size: 0.93rem;
-    line-height: 1.65;
-    margin-bottom: 1.5rem;
-  }
+  .success-card .check { font-size: 3rem; margin-bottom: 1rem; display: block; }
+  .success-card h3 { font-family: 'Oswald', sans-serif; color: var(--forest); font-size: 1.5rem; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+  .success-card p { color: var(--muted); font-size: 0.93rem; line-height: 1.65; margin-bottom: 1.5rem; }
   .success-card .summary-box {
-    background: #f7f6f2;
-    border-radius: var(--radius-sm);
-    padding: 0.75rem 1rem;
-    text-align: left;
-    margin-bottom: 1.25rem;
-    max-height: 220px;
-    overflow-y: auto;
+    background: #f7f6f2; border-radius: var(--radius-sm); padding: 0.75rem 1rem;
+    text-align: left; margin-bottom: 1.25rem; max-height: 220px; overflow-y: auto;
   }
   .summary-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
-    padding: 0.45rem 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.87rem;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+    padding: 0.45rem 0; border-bottom: 1px solid var(--border); font-size: 0.87rem;
   }
   .summary-item:last-of-type { border-bottom: none; }
   .summary-item .item-desc { color: var(--text); font-weight: 500; }
   .summary-item .item-meta { color: var(--muted); font-size: 0.8rem; }
   .summary-item .item-price { color: var(--navy); font-weight: 600; white-space: nowrap; }
   .summary-total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 1rem;
-    background: var(--navy);
-    border-radius: var(--radius-sm);
-    margin-bottom: 1.25rem;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.75rem 1rem; background: var(--navy); border-radius: var(--radius-sm); margin-bottom: 1.25rem;
   }
   .summary-total span { color: rgba(255,255,255,0.7); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; }
   .summary-total strong { color: var(--gold-light); font-family: 'Oswald', sans-serif; font-size: 1.3rem; }
-  .success-actions {
-    display: flex;
-    gap: 0.75rem;
-    justify-content: center;
-  }
+  .success-actions { display: flex; gap: 0.75rem; justify-content: center; }
   .success-close {
-    background: var(--navy);
-    color: white;
-    border: none;
-    border-radius: var(--radius-sm);
-    padding: 0.7rem 1.5rem;
-    font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    cursor: pointer;
-    transition: background var(--transition);
-    flex: 1;
+    background: var(--navy); color: white; border: none; border-radius: var(--radius-sm);
+    padding: 0.7rem 1.5rem; font-family: 'Oswald', sans-serif; font-size: 1rem; letter-spacing: 0.06em;
+    cursor: pointer; transition: background var(--transition); flex: 1;
   }
   .success-close:hover { background: var(--navy-light); }
   .success-save {
-    background: none;
-    color: var(--navy);
-    border: 1.5px solid var(--navy);
-    border-radius: var(--radius-sm);
-    padding: 0.7rem 1.5rem;
-    font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    cursor: pointer;
-    transition: all var(--transition);
-    flex: 1;
+    background: none; color: var(--navy); border: 1.5px solid var(--navy); border-radius: var(--radius-sm);
+    padding: 0.7rem 1.5rem; font-family: 'Oswald', sans-serif; font-size: 1rem; letter-spacing: 0.06em;
+    cursor: pointer; transition: all var(--transition); flex: 1;
   }
   .success-save:hover { background: var(--navy); color: white; }
 
-  @media print {
-    body > *:not(#print-area) { display: none !important; }
-    #print-area {
-      display: block !important;
-      padding: 2rem;
-      font-family: 'Inter', sans-serif;
-    }
-  }
+  /* ANIMATIONS */
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scaleIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @keyframes slideIn {
-    from { opacity: 0; transform: translateY(-6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.92); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  /* ── CREST CARD ── */
-  .crest-accordion {
-    background: var(--navy);
-    border-radius: var(--radius);
-    margin-bottom: 2rem;
-    overflow: hidden;
-  }
+  /* CREST */
+  .crest-accordion { background: var(--navy); border-radius: var(--radius); margin-bottom: 2rem; overflow: hidden; }
   .crest-trigger {
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 1.1rem 1.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    color: white;
-    font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--gold-light);
+    width: 100%; background: none; border: none; padding: 1.1rem 1.75rem;
+    display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer; font-family: 'Oswald', sans-serif; font-size: 1rem;
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold-light);
   }
   .crest-trigger:hover { background: rgba(255,255,255,0.04); }
-  .crest-chevron {
-    font-size: 0.75rem;
-    opacity: 0.6;
-    transition: transform 0.25s ease;
-    color: white;
-  }
+  .crest-chevron { font-size: 0.75rem; opacity: 0.6; transition: transform 0.25s ease; color: white; }
   .crest-accordion.open .crest-chevron { transform: rotate(180deg); }
-  .crest-body {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.28s ease;
-  }
+  .crest-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.28s ease; }
   .crest-accordion.open .crest-body { grid-template-rows: 1fr; }
-  .crest-body-inner {
-    overflow: hidden;
-    border-top: 1px solid rgba(255,255,255,0.1);
-  }
-  .crest-items {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1.5rem 1.75rem 1.75rem;
-  }
-  .crest-item {
-    display: flex;
-    gap: 1rem;
-    align-items: baseline;
-  }
+  .crest-body-inner { overflow: hidden; border-top: 1px solid rgba(255,255,255,0.1); }
+  .crest-items { display: flex; flex-direction: column; gap: 1rem; padding: 1.5rem 1.75rem 1.75rem; }
+  .crest-item { display: flex; gap: 1rem; align-items: baseline; }
   .crest-item .symbol {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    white-space: nowrap;
-    min-width: 80px;
+    font-family: 'Oswald', sans-serif; font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-light);
+    white-space: nowrap; min-width: 80px;
   }
-  .crest-item p {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.65;
-  }
+  .crest-item p { font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.65; }
 
   select option { color: var(--text); }
-
   .order-row.incomplete select { border-color: #d94040; }
   .order-row.incomplete select:focus { box-shadow: 0 0 0 3px rgba(217,64,64,0.1); }
 </style>
@@ -742,151 +632,145 @@
   <p>Fall 2026 commitment form. Select your items below — prices and totals update as you go. Exact totals confirmed via email once all orders are in.</p>
 </header>
 
+<!-- Submissions Closed Banner -->
+<div id="closed-banner">
+  <div class="closed-title">🔒 Submissions Closed</div>
+  <div class="closed-sub">The Fall 2026 commitment window has ended. Thank you to everyone who submitted an order.</div>
+</div>
+
 <main>
   <div class="notice">
     <strong>Please note:</strong> This is a group commitment form, not an individual purchase. All orders are collected together and placed as a single group order. Final pricing may vary slightly depending on total quantities — you will receive an email confirming your exact total before payment is collected.
   </div>
 
-  <!-- Crest explanation -->
-  <div class="crest-accordion" id="crest-accordion">
-    <button class="crest-trigger" onclick="toggleCrest()">
-      About the Crest
-      <span class="crest-chevron">▼</span>
-    </button>
-    <div class="crest-body">
-      <div class="crest-body-inner">
-        <div class="crest-items">
-          <div class="crest-item">
-            <span class="symbol">Circle</span>
-            <p>The ongoing application of what we have learned here and the relationships we have established for the rest of our lives.</p>
-          </div>
-          <div class="crest-item">
-            <span class="symbol">Bee</span>
-            <p>Unity, family. A reminder that we are not alone and will never get as far on our own as we can together.</p>
-          </div>
-          <div class="crest-item">
-            <span class="symbol">Star</span>
-            <p>For excellence. A reminder to strive for greatness, for by doing so character is built.</p>
-          </div>
-          <div class="crest-item">
-            <span class="symbol">Bay Leaves</span>
-            <p>Traditionally a symbol of victory in poetry. A reminder not to get lost in numbers and due dates, but to slow our thoughts in remembrance of the art in education.</p>
-          </div>
-          <div class="crest-item">
-            <span class="symbol">Sword</span>
-            <p>For honor and ownership over our education. A weapon against the distractions and shortcuts that rob us of what is ours for the taking, and worth fighting for.</p>
+  <div id="form-content">
+
+    <!-- Crest explanation -->
+    <div class="crest-accordion" id="crest-accordion" style="margin-top:1.5rem;">
+      <button class="crest-trigger" onclick="toggleCrest()">
+        About the Crest
+        <span class="crest-chevron">▼</span>
+      </button>
+      <div class="crest-body">
+        <div class="crest-body-inner">
+          <div class="crest-items">
+            <div class="crest-item"><span class="symbol">Circle</span><p>The ongoing application of what we have learned here and the relationships we have established for the rest of our lives.</p></div>
+            <div class="crest-item"><span class="symbol">Bee</span><p>Unity, family. A reminder that we are not alone and will never get as far on our own as we can together.</p></div>
+            <div class="crest-item"><span class="symbol">Star</span><p>For excellence. A reminder to strive for greatness, for by doing so character is built.</p></div>
+            <div class="crest-item"><span class="symbol">Bay Leaves</span><p>Traditionally a symbol of victory in poetry. A reminder not to get lost in numbers and due dates, but to slow our thoughts in remembrance of the art in education.</p></div>
+            <div class="crest-item"><span class="symbol">Sword</span><p>For honor and ownership over our education. A weapon against the distractions and shortcuts that rob us of what is ours for the taking, and worth fighting for.</p></div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Contact Info -->
-  <div class="contact-card" style="margin-top:1.5rem;">
-    <h2>Your Information</h2>
-    <div class="field-row">
-      <div class="field-group">
-        <label for="fname">First Name <span style="color:#d94040">*</span></label>
-        <input type="text" id="fname" placeholder="First" autocomplete="given-name">
-        <span class="field-error" id="fname-err">Required</span>
+    <!-- Contact Info -->
+    <div class="contact-card" style="margin-top:1.5rem;">
+      <h2>Your Information</h2>
+      <div class="field-row">
+        <div class="field-group">
+          <label for="fname">First Name <span style="color:#d94040">*</span></label>
+          <input type="text" id="fname" placeholder="First" autocomplete="given-name">
+          <span class="field-error" id="fname-err">Required</span>
+        </div>
+        <div class="field-group">
+          <label for="lname">Last Name <span style="color:#d94040">*</span></label>
+          <input type="text" id="lname" placeholder="Last" autocomplete="family-name">
+          <span class="field-error" id="lname-err">Required</span>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label for="email">Email <span style="color:#d94040">*</span></label>
+          <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
+          <span class="field-error" id="email-err">Enter a valid email</span>
+        </div>
+        <div class="field-group">
+          <label for="phone">Phone <span style="color:#d94040">*</span></label>
+          <input type="tel" id="phone" placeholder="(555) 000-0000" autocomplete="tel">
+          <span class="field-error" id="phone-err">Required</span>
+        </div>
       </div>
       <div class="field-group">
-        <label for="lname">Last Name <span style="color:#d94040">*</span></label>
-        <input type="text" id="lname" placeholder="Last" autocomplete="family-name">
-        <span class="field-error" id="lname-err">Required</span>
+        <label>Payment Preference <span style="color:#d94040">*</span></label>
+        <div class="payment-group" id="payment-group">
+          <button type="button" class="payment-btn" onclick="setPayment(this,'Cash / Check')">💵&nbsp; Cash / Check</button>
+          <button type="button" class="payment-btn" onclick="setPayment(this,'Venmo / PayPal')">📱&nbsp; Venmo / PayPal</button>
+        </div>
+        <span class="field-error" id="pay-err">Please select a payment preference</span>
       </div>
     </div>
-    <div class="field-row">
-      <div class="field-group">
-        <label for="email">Email <span style="color:#d94040">*</span></label>
-        <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
-        <span class="field-error" id="email-err">Enter a valid email</span>
-      </div>
-      <div class="field-group">
-        <label for="phone">Phone <span style="color:#d94040">*</span></label>
-        <input type="tel" id="phone" placeholder="(555) 000-0000" autocomplete="tel">
-        <span class="field-error" id="phone-err">Required</span>
-      </div>
+
+    <!-- Short Sleeve -->
+    <div class="section-header">
+      <h2>Short Sleeve Tee</h2><div class="divider"></div>
+      <span class="price-tag">Gildan G800 / G800B</span>
     </div>
-    <div class="field-group">
-      <label>Payment Preference <span style="color:#d94040">*</span></label>
-      <div class="payment-group" id="payment-group">
-        <button type="button" class="payment-btn" onclick="setPayment(this,'Cash / Check')">💵&nbsp; Cash / Check</button>
-        <button type="button" class="payment-btn" onclick="setPayment(this,'Venmo / PayPal')">📱&nbsp; Venmo / PayPal</button>
-      </div>
-      <span class="field-error" id="pay-err">Please select a payment preference</span>
+    <div class="product-card">
+      <span class="design-note">🖨 Screen print — small crest · Navy, Forest Green, Carolina Blue (white text) · Sport Gray (navy text)</span>
+      <img src="mockup-ss.jpg" alt="Short Sleeve Tee mockup" class="mockup-img" onclick="openLightbox(this.src)" style="width:100%;max-height:280px;object-fit:contain;border-radius:8px;margin-bottom:1.25rem;display:block;background:#f9f8f5;">
+      <div class="rows-container" id="ss-rows"></div>
+      <button class="add-row-btn" onclick="addRow('ss')">+ Add another size / color</button>
     </div>
-  </div>
 
-  <!-- Short Sleeve -->
-  <div class="section-header">
-    <h2>Short Sleeve Tee</h2>
-    <div class="divider"></div>
-    <span class="price-tag">Gildan G800 / G800B</span>
-  </div>
-  <div class="product-card">
-    <span class="design-note">🖨 Screen print — small crest · Navy, Forest Green, Carolina Blue (white text) · Sport Gray (navy text)</span>
-    <img src="mockup-ss.jpg" alt="Short Sleeve Tee mockup" class="mockup-img" onclick="openLightbox(this.src)" style="width:100%;max-height:280px;object-fit:contain;border-radius:8px;margin-bottom:1.25rem;display:block;background:#f9f8f5;">
-    <div class="rows-container" id="ss-rows"></div>
-    <button class="add-row-btn" onclick="addRow('ss')">+ Add another size / color</button>
-  </div>
+    <!-- Long Sleeve -->
+    <div class="section-header">
+      <h2>Long Sleeve Tee</h2><div class="divider"></div>
+      <span class="price-tag">Gildan G540 / G540B</span>
+    </div>
+    <div class="product-card">
+      <span class="design-note">🖨 Screen print — small crest · Navy, Forest Green, Carolina Blue (white text) · Sport Gray (navy text)</span>
+      <img src="mockup-ls.jpg" alt="Long Sleeve Tee mockup" class="mockup-img" onclick="openLightbox(this.src)" style="width:100%;max-height:280px;object-fit:contain;border-radius:8px;margin-bottom:1.25rem;display:block;background:#f9f8f5;">
+      <div class="rows-container" id="ls-rows"></div>
+      <button class="add-row-btn" onclick="addRow('ls')">+ Add another size / color</button>
+    </div>
 
-  <!-- Long Sleeve -->
-  <div class="section-header">
-    <h2>Long Sleeve Tee</h2>
-    <div class="divider"></div>
-    <span class="price-tag">Gildan G540 / G540B</span>
-  </div>
-  <div class="product-card">
-    <span class="design-note">🖨 Screen print — small crest · Navy, Forest Green, Carolina Blue (white text) · Sport Gray (navy text)</span>
-    <img src="mockup-ls.jpg" alt="Long Sleeve Tee mockup" class="mockup-img" onclick="openLightbox(this.src)" style="width:100%;max-height:280px;object-fit:contain;border-radius:8px;margin-bottom:1.25rem;display:block;background:#f9f8f5;">
-    <div class="rows-container" id="ls-rows"></div>
-    <button class="add-row-btn" onclick="addRow('ls')">+ Add another size / color</button>
-  </div>
+    <!-- Crewneck -->
+    <div class="section-header">
+      <h2>Crewneck Sweatshirt</h2><div class="divider"></div>
+      <span class="price-tag">Gildan G180 / G180B</span>
+    </div>
+    <div class="product-card">
+      <span class="design-note">🖨 Screen print — "Excelsior" text · Navy, Forest Green, Carolina Blue (white text) · Sport Gray (navy text)</span>
+      <img src="mockup-cn.jpg" alt="Crewneck Sweatshirt mockup" class="mockup-img" onclick="openLightbox(this.src)" style="width:100%;max-height:280px;object-fit:contain;border-radius:8px;margin-bottom:1.25rem;display:block;background:#f9f8f5;">
+      <div class="rows-container" id="cn-rows"></div>
+      <button class="add-row-btn" onclick="addRow('cn')">+ Add another size / color</button>
+    </div>
 
-  <!-- Crewneck -->
-  <div class="section-header">
-    <h2>Crewneck Sweatshirt</h2>
-    <div class="divider"></div>
-    <span class="price-tag">Gildan G180 / G180B</span>
-  </div>
-  <div class="product-card">
-    <span class="design-note">🖨 Screen print — "Excelsior" text · Navy, Forest Green, Carolina Blue (white text) · Sport Gray (navy text)</span>
-    <img src="mockup-cn.jpg" alt="Crewneck Sweatshirt mockup" class="mockup-img" onclick="openLightbox(this.src)" style="width:100%;max-height:280px;object-fit:contain;border-radius:8px;margin-bottom:1.25rem;display:block;background:#f9f8f5;">
-    <div class="rows-container" id="cn-rows"></div>
-    <button class="add-row-btn" onclick="addRow('cn')">+ Add another size / color</button>
-  </div>
+    <!-- Quarter Zip -->
+    <div class="section-header">
+      <h2>Quarter Zip Pullover</h2><div class="divider"></div>
+      <span class="price-tag">Port &amp; Company PC78Q / PC78YQ</span>
+    </div>
+    <div class="product-card">
+      <span class="design-note">🖨 Screen print — small crest · Navy, Charcoal (white text) · Athletic Heather Gray (navy text)</span>
+      <img src="mockup-qz.jpg" alt="Quarter Zip mockup" class="mockup-img" onclick="openLightbox(this.src)" style="width:100%;max-height:280px;object-fit:contain;border-radius:8px;margin-bottom:1.25rem;display:block;background:#f9f8f5;">
+      <div class="rows-container" id="qz-rows"></div>
+      <button class="add-row-btn" onclick="addRow('qz')">+ Add another size / color</button>
+    </div>
 
-  <!-- Quarter Zip -->
-  <div class="section-header">
-    <h2>Quarter Zip Pullover</h2>
-    <div class="divider"></div>
-    <span class="price-tag">Port &amp; Company PC78Q / PC78YQ</span>
-  </div>
-  <div class="product-card">
-    <span class="design-note">🖨 Screen print — small crest · Navy, Charcoal (white text) · Athletic Heather Gray (navy text)</span>
-    <img src="mockup-qz.jpg" alt="Quarter Zip mockup" class="mockup-img" onclick="openLightbox(this.src)" style="width:100%;max-height:280px;object-fit:contain;border-radius:8px;margin-bottom:1.25rem;display:block;background:#f9f8f5;">
-    <div class="rows-container" id="qz-rows"></div>
-    <button class="add-row-btn" onclick="addRow('qz')">+ Add another size / color</button>
-  </div>
+    <!-- Polo -->
+    <div class="section-header">
+      <h2>Polo</h2><div class="divider"></div>
+      <span class="price-tag">Port Authority L500 · K500 · Y500</span>
+    </div>
+    <div class="product-card">
+      <span class="design-note">🧵 Embroidered — small crest · Navy, Dark Green (white text)</span>
+      <img src="mockup-po.jpg" alt="Polo mockup" class="mockup-img" onclick="openLightbox(this.src)" style="width:100%;max-height:280px;object-fit:contain;border-radius:8px;margin-bottom:1.25rem;display:block;background:#f9f8f5;">
+      <div class="rows-container" id="po-rows"></div>
+      <button class="add-row-btn" onclick="addRow('po')">+ Add another size / color</button>
+    </div>
 
-  <!-- Polo -->
-  <div class="section-header">
-    <h2>Polo</h2>
-    <div class="divider"></div>
-    <span class="price-tag">Port Authority L500 · K500 · Y500</span>
-  </div>
-  <div class="product-card">
-    <span class="design-note">🧵 Embroidered — small crest · Navy, Dark Green (white text)</span>
-    <img src="mockup-po.jpg" alt="Polo mockup" class="mockup-img" onclick="openLightbox(this.src)" style="width:100%;max-height:280px;object-fit:contain;border-radius:8px;margin-bottom:1.25rem;display:block;background:#f9f8f5;">
-    <div class="rows-container" id="po-rows"></div>
-    <button class="add-row-btn" onclick="addRow('po')">+ Add another size / color</button>
-  </div>
+    <div class="submit-section">
+      <button class="submit-btn" id="submit-btn" onclick="submitForm()">Submit Commitment Order →</button>
+    </div>
 
-  <div class="submit-section">
-    <button class="submit-btn" id="submit-btn" onclick="submitForm()">Submit Commitment Order →</button>
-  </div>
+  </div><!-- end #form-content -->
 </main>
+
+<div class="access-link-wrap">
+  <span class="access-link" onclick="document.getElementById('access-modal').classList.add('show')">Have an access code?</span>
+</div>
 
 <!-- Totals bar -->
 <div class="totals-bar">
@@ -898,8 +782,6 @@
     <span class="grand-amount" id="grand-total">$0.00</span>
   </div>
 </div>
-
-<iframe name="hidden-iframe" style="display:none;"></iframe>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
@@ -923,6 +805,21 @@
     <div class="success-actions">
       <button class="success-save" onclick="printConfirmation()">⬇ Save as PDF</button>
       <button class="success-close" onclick="document.getElementById('success-overlay').classList.remove('show')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Access Code Modal -->
+<div class="access-modal" id="access-modal">
+  <div class="access-modal-card">
+    <h3>Access Code</h3>
+    <p>Enter your access code to open the commitment form.</p>
+    <input type="text" id="access-input" placeholder="Enter code" maxlength="20"
+      onkeydown="if(event.key==='Enter') checkCode()">
+    <div class="access-error" id="access-error">Incorrect code. Please try again.</div>
+    <div class="access-btns">
+      <button class="access-cancel" onclick="document.getElementById('access-modal').classList.remove('show')">Cancel</button>
+      <button class="access-submit" onclick="checkCode()">Submit</button>
     </div>
   </div>
 </div>
@@ -981,8 +878,35 @@ const PRODUCTS = {
 const counters = {ss:0, ls:0, cn:0, qz:0, po:0};
 let payment = '';
 let toastTimer;
+let formUnlocked = false;
 
-// ── Payment toggle ──
+function lockForm() {
+  document.getElementById('closed-banner').style.display = 'flex';
+  document.getElementById('form-content').classList.add('form-locked');
+}
+
+function unlockForm() {
+  formUnlocked = true;
+  document.getElementById('closed-banner').style.display = 'none';
+  document.getElementById('form-content').classList.remove('form-locked');
+}
+
+function checkCode() {
+  const input = document.getElementById('access-input').value.trim().toUpperCase();
+  const errEl = document.getElementById('access-error');
+  const inputEl = document.getElementById('access-input');
+  if (input === 'EHC2027') {
+    document.getElementById('access-modal').classList.remove('show');
+    inputEl.value = '';
+    inputEl.classList.remove('error');
+    errEl.classList.remove('visible');
+    unlockForm();
+  } else {
+    inputEl.classList.add('error');
+    errEl.classList.add('visible');
+  }
+}
+
 function setPayment(btn, val) {
   payment = val;
   document.querySelectorAll('.payment-btn').forEach(b => b.classList.remove('active','error-ring'));
@@ -990,36 +914,26 @@ function setPayment(btn, val) {
   hideError('pay-err');
 }
 
-// ── Row management ──
 function addRow(type) {
   const id = counters[type]++;
   const prod = PRODUCTS[type];
   const container = document.getElementById(type + '-rows');
-
   const row = document.createElement('div');
   row.className = 'order-row';
   row.id = `${type}-row-${id}`;
-
-  const sizeOpts = prod.sizes.map(s =>
-    `<option value="${s.label}|${s.price}">$${s.price.toFixed(2)} — ${s.label}</option>`
-  ).join('');
-  const colorOpts = prod.colors.map(c =>
-    `<option value="${c}">${c}</option>`
-  ).join('');
-
+  const sizeOpts = prod.sizes.map(s => `<option value="${s.label}|${s.price}">$${s.price.toFixed(2)} — ${s.label}</option>`).join('');
+  const colorOpts = prod.colors.map(c => `<option value="${c}">${c}</option>`).join('');
   row.innerHTML = `
     <div class="field-group">
       <label>Size &amp; Price</label>
       <select onchange="onSelectChange('${type}',${id})" id="${type}-size-${id}">
-        <option value="">Select size…</option>
-        ${sizeOpts}
+        <option value="">Select size…</option>${sizeOpts}
       </select>
     </div>
     <div class="field-group">
       <label>Color</label>
       <select onchange="onSelectChange('${type}',${id})" id="${type}-color-${id}">
-        <option value="">Select color…</option>
-        ${colorOpts}
+        <option value="">Select color…</option>${colorOpts}
       </select>
     </div>
     <div class="qty-col field-group">
@@ -1031,10 +945,8 @@ function addRow(type) {
       </div>
     </div>
     <div class="remove-col">
-      <button type="button" class="remove-btn" onclick="removeRow('${type}',${id})" title="Remove row" aria-label="Remove">✕</button>
-    </div>
-  `;
-
+      <button type="button" class="remove-btn" onclick="removeRow('${type}',${id})" title="Remove" aria-label="Remove">✕</button>
+    </div>`;
   container.appendChild(row);
   recalc();
 }
@@ -1059,12 +971,10 @@ function removeRow(type, id) {
   setTimeout(() => { row.remove(); recalc(); }, 180);
 }
 
-// ── Recalculate totals ──
 function recalc() {
   const types = ['ss','ls','cn','qz','po'];
   let grand = 0;
   const parts = [];
-
   types.forEach(type => {
     const prod = PRODUCTS[type];
     let subtotal = 0, count = 0;
@@ -1082,32 +992,17 @@ function recalc() {
       parts.push(`<div class="item-chip">${prod.label}<strong>${count} item${count > 1 ? 's' : ''} · $${subtotal.toFixed(2)}</strong></div>`);
     }
   });
-
   const breakdown = document.getElementById('totals-breakdown');
-  breakdown.innerHTML = parts.length
-    ? parts.join('')
-    : '<span class="empty-total">Select items above to see your total</span>';
-
+  breakdown.innerHTML = parts.length ? parts.join('') : '<span class="empty-total">Select items above to see your total</span>';
   const grandEl = document.getElementById('grand-total');
   grandEl.textContent = '$' + grand.toFixed(2);
   grandEl.classList.add('bump');
   setTimeout(() => grandEl.classList.remove('bump'), 150);
 }
 
-// ── Inline validation helpers ──
-function showError(id, msg) {
-  const el = document.getElementById(id);
-  if (el) { el.textContent = msg; el.classList.add('visible'); }
-}
-function hideError(id) {
-  const el = document.getElementById(id);
-  if (el) el.classList.remove('visible');
-}
-function markField(id, bad) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.classList.toggle('error', bad);
-}
+function showError(id, msg) { const el = document.getElementById(id); if (el) { el.textContent = msg; el.classList.add('visible'); } }
+function hideError(id) { const el = document.getElementById(id); if (el) el.classList.remove('visible'); }
+function markField(id, bad) { const el = document.getElementById(id); if (!el) return; el.classList.toggle('error', bad); }
 
 function showToast(msg, isError = true) {
   const t = document.getElementById('toast');
@@ -1117,49 +1012,22 @@ function showToast(msg, isError = true) {
   toastTimer = setTimeout(() => t.classList.remove('show'), 3200);
 }
 
-// ── Live validation on blur ──
-document.getElementById('fname').addEventListener('blur', function() {
-  const bad = !this.value.trim();
-  markField('fname', bad);
-  bad ? showError('fname-err','Required') : hideError('fname-err');
-});
-document.getElementById('lname').addEventListener('blur', function() {
-  const bad = !this.value.trim();
-  markField('lname', bad);
-  bad ? showError('lname-err','Required') : hideError('lname-err');
-});
-document.getElementById('email').addEventListener('blur', function() {
-  const bad = !this.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value.trim());
-  markField('email', bad);
-  bad ? showError('email-err','Enter a valid email address') : hideError('email-err');
-});
-document.getElementById('phone').addEventListener('blur', function() {
-  const bad = !this.value.trim();
-  markField('phone', bad);
-  bad ? showError('phone-err','Required') : hideError('phone-err');
-});
+document.getElementById('fname').addEventListener('blur', function() { const bad = !this.value.trim(); markField('fname', bad); bad ? showError('fname-err','Required') : hideError('fname-err'); });
+document.getElementById('lname').addEventListener('blur', function() { const bad = !this.value.trim(); markField('lname', bad); bad ? showError('lname-err','Required') : hideError('lname-err'); });
+document.getElementById('email').addEventListener('blur', function() { const bad = !this.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value.trim()); markField('email', bad); bad ? showError('email-err','Enter a valid email address') : hideError('email-err'); });
+document.getElementById('phone').addEventListener('blur', function() { const bad = !this.value.trim(); markField('phone', bad); bad ? showError('phone-err','Required') : hideError('phone-err'); });
+['fname','lname','email','phone'].forEach(id => { document.getElementById(id).addEventListener('input', function() { this.classList.remove('error'); hideError(id + '-err'); }); });
 
-['fname','lname','email','phone'].forEach(id => {
-  document.getElementById(id).addEventListener('input', function() {
-    this.classList.remove('error');
-    hideError(id + '-err');
-  });
-});
-
-// ── Validate that every visible row has both size AND color selected ──
-// Returns the count of incomplete rows (and marks them visually).
 function validatePairedSelections() {
   const types = ['ss','ls','cn','qz','po'];
   let incomplete = 0;
   types.forEach(type => {
     for (let i = 0; i < counters[type]; i++) {
-      const row      = document.getElementById(`${type}-row-${i}`);
-      const sizeEl   = document.getElementById(`${type}-size-${i}`);
-      const colorEl  = document.getElementById(`${type}-color-${i}`);
+      const row    = document.getElementById(`${type}-row-${i}`);
+      const sizeEl = document.getElementById(`${type}-size-${i}`);
+      const colorEl= document.getElementById(`${type}-color-${i}`);
       if (!row || !sizeEl) continue;
-      const hasSize  = !!sizeEl.value;
-      const hasColor = !!colorEl?.value;
-      const bad = (hasSize !== hasColor); // one chosen without the other
+      const bad = !!sizeEl.value !== !!colorEl?.value;
       row.classList.toggle('incomplete', bad);
       if (bad) incomplete++;
     }
@@ -1167,91 +1035,53 @@ function validatePairedSelections() {
   return incomplete;
 }
 
-// Live pairing check — runs whenever a select changes
 function onSelectChange(type, id) {
-  const row     = document.getElementById(`${type}-row-${id}`);
-  const sizeEl  = document.getElementById(`${type}-size-${id}`);
-  const colorEl = document.getElementById(`${type}-color-${id}`);
+  const row    = document.getElementById(`${type}-row-${id}`);
+  const sizeEl = document.getElementById(`${type}-size-${id}`);
+  const colorEl= document.getElementById(`${type}-color-${id}`);
   if (!row || !sizeEl || !colorEl) return;
-  const hasSize  = !!sizeEl.value;
-  const hasColor = !!colorEl.value;
-  // Only mark incomplete if one is chosen but not the other
-  row.classList.toggle('incomplete', hasSize !== hasColor);
+  row.classList.toggle('incomplete', !!sizeEl.value !== !!colorEl.value);
   recalc();
 }
 
-// ── Build order summary string ──
 function buildOrderSummary() {
   const types = ['ss','ls','cn','qz','po'];
   const lines = [];
   types.forEach(type => {
     const prod = PRODUCTS[type];
     for (let i = 0; i < counters[type]; i++) {
-      const sizeEl  = document.getElementById(`${type}-size-${i}`);
-      const colorEl = document.getElementById(`${type}-color-${i}`);
-      const qtyEl   = document.getElementById(`${type}-qty-${i}`);
+      const sizeEl = document.getElementById(`${type}-size-${i}`);
+      const colorEl= document.getElementById(`${type}-color-${i}`);
+      const qtyEl  = document.getElementById(`${type}-qty-${i}`);
       if (!sizeEl || !qtyEl || !sizeEl.value) continue;
       const [sizeName, priceStr] = sizeEl.value.split('|');
-      const price = parseFloat(priceStr);
-      const color = colorEl?.value || '—';
-      const qty   = parseInt(qtyEl.textContent);
-      lines.push(`${prod.label} · ${sizeName} · ${color} · Qty ${qty} · $${(price * qty).toFixed(2)}`);
+      const qty = parseInt(qtyEl.textContent);
+      lines.push(`${prod.label} · ${sizeName} · ${colorEl?.value || '—'} · Qty ${qty} · $${(parseFloat(priceStr) * qty).toFixed(2)}`);
     }
   });
   return lines.join('\n');
 }
 
-// ── Submit ──
 function submitForm() {
   let valid = true;
-
   const fname = document.getElementById('fname').value.trim();
   const lname = document.getElementById('lname').value.trim();
   const email = document.getElementById('email').value.trim();
-
+  const phone = document.getElementById('phone').value.trim();
   if (!fname) { markField('fname', true); showError('fname-err','Required'); valid = false; }
   if (!lname) { markField('lname', true); showError('lname-err','Required'); valid = false; }
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    markField('email', true); showError('email-err','Enter a valid email address'); valid = false;
-  }
-  const phone = document.getElementById('phone').value.trim();
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { markField('email', true); showError('email-err','Enter a valid email address'); valid = false; }
   if (!phone) { markField('phone', true); showError('phone-err','Required'); valid = false; }
-
-  if (!payment) {
-    document.querySelectorAll('.payment-btn').forEach(b => b.classList.add('error-ring'));
-    showError('pay-err','Please select a payment preference');
-    valid = false;
-  }
-
+  if (!payment) { document.querySelectorAll('.payment-btn').forEach(b => b.classList.add('error-ring')); showError('pay-err','Please select a payment preference'); valid = false; }
   const incompleteRows = validatePairedSelections();
-  if (incompleteRows > 0) {
-    showToast(`${incompleteRows} row${incompleteRows > 1 ? 's are' : ' is'} missing a size or color — please complete or remove them.`);
-    valid = false;
-  }
-
+  if (incompleteRows > 0) { showToast(`${incompleteRows} row${incompleteRows > 1 ? 's are' : ' is'} missing a size or color — please complete or remove them.`); valid = false; }
   const summary = buildOrderSummary();
-  if (!summary) {
-    showToast('Please add at least one item to your order.');
-    valid = false;
-  }
-
-  if (!valid) {
-    if (summary || !fname || !lname || !email || !payment) {
-      const firstErr = document.querySelector('.error, .error-ring');
-      if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-    return;
-  }
+  if (!summary) { showToast('Please add at least one item to your order.'); valid = false; }
+  if (!valid) { const firstErr = document.querySelector('.error, .error-ring'); if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
 
   const grand = document.getElementById('grand-total').textContent;
-
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw-yAYfK8A2Ymy65Q03sFqS4DHYmL4VpjmoMdQSH5fdo9sIMfzPmzpuC0DKdh_PZJmGpA/exec';
-  fetch(SCRIPT_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    body: new URLSearchParams({ fname, lname, email, phone, payment, order: summary, total: grand })
-  }).catch(() => {});
-
+  fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams({ fname, lname, email, phone, payment, order: summary, total: grand }) }).catch(() => {});
   showSuccess(fname, summary, grand);
 }
 
@@ -1259,90 +1089,45 @@ function showSuccess(fname, summary, grand) {
   const types = ['ss','ls','cn','qz','po'];
   const box = document.getElementById('success-summary');
   box.innerHTML = '';
-
   types.forEach(type => {
     const prod = PRODUCTS[type];
     for (let i = 0; i < counters[type]; i++) {
-      const sizeEl  = document.getElementById(`${type}-size-${i}`);
-      const colorEl = document.getElementById(`${type}-color-${i}`);
-      const qtyEl   = document.getElementById(`${type}-qty-${i}`);
+      const sizeEl = document.getElementById(`${type}-size-${i}`);
+      const colorEl= document.getElementById(`${type}-color-${i}`);
+      const qtyEl  = document.getElementById(`${type}-qty-${i}`);
       if (!sizeEl || !qtyEl || !sizeEl.value) continue;
       const [sizeName, priceStr] = sizeEl.value.split('|');
-      const price = parseFloat(priceStr);
-      const color = colorEl?.value || '';
-      const qty   = parseInt(qtyEl.textContent);
-      const lineTotal = (price * qty).toFixed(2);
-
+      const qty = parseInt(qtyEl.textContent);
       const row = document.createElement('div');
       row.className = 'summary-item';
-      row.innerHTML = `
-        <div>
-          <div class="item-desc">${prod.label}</div>
-          <div class="item-meta">${sizeName} · ${color} · Qty ${qty}</div>
-        </div>
-        <div class="item-price">$${lineTotal}</div>
-      `;
+      row.innerHTML = `<div><div class="item-desc">${prod.label}</div><div class="item-meta">${sizeName} · ${colorEl?.value || ''} · Qty ${qty}</div></div><div class="item-price">$${(parseFloat(priceStr)*qty).toFixed(2)}</div>`;
       box.appendChild(row);
     }
   });
-
   document.getElementById('success-grand').textContent = grand;
   document.getElementById('success-overlay').classList.add('show');
   document.getElementById('submit-btn').disabled = true;
 }
 
-// ── Print confirmation ──
 function printConfirmation() {
   const name = (document.getElementById('fname').value + ' ' + document.getElementById('lname').value).trim();
   const grand = document.getElementById('success-grand').textContent;
   const rows = [...document.querySelectorAll('#success-summary .summary-item')].map(el => {
-    const desc = el.querySelector('.item-desc')?.textContent || '';
-    const meta = el.querySelector('.item-meta')?.textContent || '';
-    const price = el.querySelector('.item-price')?.textContent || '';
-    return `<tr><td>${desc}</td><td style="color:#666;font-size:0.9em">${meta}</td><td style="text-align:right;font-weight:600">${price}</td></tr>`;
+    return `<tr><td>${el.querySelector('.item-desc')?.textContent||''}</td><td style="color:#666;font-size:0.9em">${el.querySelector('.item-meta')?.textContent||''}</td><td style="text-align:right;font-weight:600">${el.querySelector('.item-price')?.textContent||''}</td></tr>`;
   }).join('');
-
   const win = window.open('', '_blank');
-  win.document.write(`
-    <html><head><title>Excelsior Order — ${name}</title>
-    <style>
-      body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; color: #1a1a1a; }
-      h2 { color: #1a2744; font-size: 1.4rem; margin-bottom: 0.25rem; }
-      p { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
-      table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
-      td { padding: 0.5rem 0.4rem; border-bottom: 1px solid #eee; vertical-align: top; }
-      .total { background: #1a2744; color: white; padding: 0.75rem 1rem; border-radius: 6px; display: flex; justify-content: space-between; }
-      .total span { opacity: 0.7; font-size: 0.8rem; text-transform: uppercase; }
-      .total strong { font-size: 1.2rem; color: #f0c060; }
-    </style></head>
-    <body>
-      <h2>Excelsior Apparel — Commitment Confirmation</h2>
-      <p>${name} &nbsp;·&nbsp; Fall 2026</p>
-      <table>${rows}</table>
-      <div class="total"><span>Estimated Total</span><strong>${grand}</strong></div>
-    </body></html>
-  `);
+  win.document.write(`<html><head><title>Excelsior Order — ${name}</title><style>body{font-family:Arial,sans-serif;max-width:500px;margin:40px auto;color:#1a1a1a}h2{color:#1a2744;font-size:1.4rem;margin-bottom:0.25rem}p{color:#666;font-size:0.9rem;margin-bottom:1.5rem}table{width:100%;border-collapse:collapse;margin-bottom:1rem}td{padding:0.5rem 0.4rem;border-bottom:1px solid #eee;vertical-align:top}.total{background:#1a2744;color:white;padding:0.75rem 1rem;border-radius:6px;display:flex;justify-content:space-between}.total span{opacity:0.7;font-size:0.8rem;text-transform:uppercase}.total strong{font-size:1.2rem;color:#f0c060}</style></head><body><h2>Excelsior Apparel — Commitment Confirmation</h2><p>${name} &nbsp;·&nbsp; Fall 2026</p><table>${rows}</table><div class="total"><span>Estimated Total</span><strong>${grand}</strong></div></body></html>`);
   win.document.close();
   win.print();
 }
 
-// ── Crest accordion ──
-function toggleCrest() {
-  document.getElementById('crest-accordion').classList.toggle('open');
-}
-
-// ── Lightbox ──
-function openLightbox(src) {
-  document.getElementById('lightbox-img').src = src;
-  document.getElementById('lightbox').classList.add('show');
-}
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('show');
-}
+function toggleCrest() { document.getElementById('crest-accordion').classList.toggle('open'); }
+function openLightbox(src) { document.getElementById('lightbox-img').src = src; document.getElementById('lightbox').classList.add('show'); }
+function closeLightbox() { document.getElementById('lightbox').classList.remove('show'); }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-// Start each section with one default row
 ['ss','ls','cn','qz','po'].forEach(t => addRow(t));
+lockForm();
 </script>
 </body>
 </html>
